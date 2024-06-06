@@ -4,6 +4,10 @@ from collections import deque
 import numpy as np
 
 class ListDict(object):
+    """
+    Adapted from Amber's reply to:
+    https://stackoverflow.com/questions/15993447/python-data-structure-for-efficient-add-remove-and-random-choice
+    """
     def __init__(self):
         """
         Initialize a ListDict object.
@@ -53,6 +57,7 @@ class Wilson(IGenerator):
         Args:
             maze; (Maze): The maze instance to update.
         """
+        # TODO: Write algorithm outline
         rows = maze.rows
         cols = maze.cols
         
@@ -133,9 +138,3 @@ class Wilson(IGenerator):
                 # If the next cell is visited, break the loop
                 if current_cell in visited_cells:
                     break
-
-
-
-    
-    def get_random_unvisited_cell(self, unvisited: set):
-        return np.random.choice(unvisited)
