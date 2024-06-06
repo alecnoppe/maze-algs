@@ -1,4 +1,4 @@
-from generator.IGenerator import IGenerator
+from generators.IGenerator import IGenerator
 from maze.Maze import Maze, Cell
 
 from collections import deque
