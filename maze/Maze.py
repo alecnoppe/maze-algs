@@ -138,6 +138,26 @@ class Maze:
         if direction == 'W':
             return 0, -1
         
+    def convert_indices(self, row:int, col:int) -> tuple:
+        """
+        Convert the row and column indices to the direction.
+
+        Args:
+            row; (int): The row index.
+            col; (int): The column index.
+
+        Returns:
+            tuple: A tuple of the direction.
+        """
+        if row == -1:
+            return 'N'
+        if row == 1:
+            return 'S'
+        if col == 1:
+            return 'E'
+        if col == -1:
+            return 'W'
+    
     def get_cell(self, row:int, col:int) -> Cell:
         """
         Get the cell at indices (row, col).
@@ -225,7 +245,6 @@ class Maze:
         for i in range(self.rows):
             for j in range(self.cols):
                 cell = self.cells[i, j]
-                print(out[i * 5: (i + 1) * 5 , j * 5 : (j + 1) * 5 ].shape)
                 out[i * 5: (i + 1) * 5, j * 5: (j + 1) * 5 ] = cell.__repr__()
         
         return '\n'.join([''.join(row) for row in out])
