@@ -44,6 +44,15 @@ class Cell:
             list: A list of possible neighbors of the cell.
         """
         return [key for key, value in self.walls.items() if not value]
+    
+    def get_wall_directions(self) -> list:
+        """
+        Get the directions of the walls of the cell.
+
+        Returns:
+            list: A list of the directions of the walls of the cell.
+        """
+        return [key for key, value in self.walls.items() if value]
 
     def __repr__(self) -> str:
         """
