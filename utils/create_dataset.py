@@ -4,6 +4,7 @@ from solvers import ASolver
 
 import numpy as np
 from tqdm import trange
+import threading
 
 def path_to_npy(path: list[Cell], maze_array: np.ndarray, holes: list[tuple[int]] = []):
     """
