@@ -9,9 +9,9 @@ import numpy as np
 
 
 if __name__ == "__main__":
-    # gui = GUI(10, 10)
-    m = Maze(64, 64, generator=Wilson)
-    # gui.simulate(m, DFSAgent())
+    gui = GUI(16, 16)
+    m = Maze(16, 16, generator=RandomizedDFS(bias=0.75))
+    gui.simulate(m, DFSAgent())
     solver = ASolver()
     path = solver.solve(m)
 
@@ -25,6 +25,6 @@ if __name__ == "__main__":
     plot_path_from_npy('mazes/path.npy')
     plot_maze_and_path('mazes/maze.npy', 'mazes/path.npy')
 
-    dataset = create_dataset(10, 5, generator=Wilson)
+    dataset = create_dataset(10, 5, generator=Wilson())
     # save the dataset
     np.save('dataset.npy', dataset)

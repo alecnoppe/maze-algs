@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
 
 class IGenerator(ABC):
-    @staticmethod
     @abstractmethod
     def generate(self, maze) -> None:
         """

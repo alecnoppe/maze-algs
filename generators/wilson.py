@@ -49,8 +49,7 @@ class ListDict(object):
         return item in self._dict
 
 class Wilson(IGenerator):
-    @staticmethod
-    def generate(maze:Maze) -> None:
+    def generate(self, maze:Maze) -> None:
         """
         Use Wilson's algorithm to generate a maze.
 

@@ -18,9 +18,11 @@ def main():
                         choices=['RandomizedDFS', 'Wilson'], 
                         ) # map to the class
     parser.add_argument('--output', '-o', type=str, default='datasets/dataset.npy', help='The output file to save the dataset to.')
+    parser.add_argument('--bias', '-b', type=float, default=0.5, help='The bias for the RandomizedDFS generator.')
+    
     args = parser.parse_args()
 
-    generator_dict = {'RandomizedDFS': RandomizedDFS, 'Wilson': Wilson}
+    generator_dict = {'RandomizedDFS': RandomizedDFS(bias=args.bias), 'Wilson': Wilson()}
 
     start_time = time.time()
     dataset = create_dataset(args.num_mazes, args.maze_size, generator_dict[args.generator])

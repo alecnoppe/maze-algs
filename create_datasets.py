@@ -17,9 +17,8 @@ def main():
                         ) # map to the class
     parser.add_argument('--output', '-o', type=str, default='datasets/dataset.npy', help='The output file to save the dataset to.')
     parser.add_argument('--processes', '-p', type=int, default=1, help='The number of processes to use. Default is 1.')
+    parser.add_argument('--bias', '-b', type=float, default=0.5, help='The bias for the RandomizedDFS generator.')
     args = parser.parse_args()
-
-    generator_dict = {'RandomizedDFS': RandomizedDFS, 'Wilson': Wilson}
 
     start_time = time.time()
 
@@ -30,6 +29,7 @@ def main():
                           '--maze-size', str(args.maze_size), 
                           '--num-mazes', str(args.num_mazes_per_process), 
                           '--generator', args.generator, 
+                          '--bias', str(args.bias),
                           '--output', f'datasets/dataset_{i}.npy'])
         
         processes.append(p)
