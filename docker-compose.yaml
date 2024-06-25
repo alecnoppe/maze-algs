@@ -1,0 +1,6 @@
+services: 
+  maze-generator:
+    build: .
+    container_name: maze-generator
+    volumes:
+      - ".:/app"

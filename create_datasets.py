@@ -5,7 +5,6 @@ import time
 import os
 
 from utils import *
-from generators import RandomizedDFS, Wilson, FractalTessellation
 
 
 def main():
@@ -13,7 +12,7 @@ def main():
     parser.add_argument('--maze-size', '-s', type=int, default=64, help='The size in the maze.')
     parser.add_argument('--num-mazes-per-process', '-n', type=int, default=10, help='The number of mazes to generate.')
     parser.add_argument('--generator', '-g', type=str, default='Wilson', help='The maze generator to use.',
-                        choices=['RandomizedDFS', 'Wilson', 'FractalTessellation'], 
+                        choices=['RandomizedDFS', 'Wilson', 'FractalTessellation', 'Prim'], 
                         ) # map to the class
     parser.add_argument('--output', '-o', type=str, default='datasets/dataset.npy', help='The output file to save the dataset to.')
     parser.add_argument('--processes', '-p', type=int, default=1, help='The number of processes to use. Default is 1.')
