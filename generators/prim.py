@@ -12,9 +12,13 @@ class Prim(IGenerator):
         Given most-recent position (vertex_indices), add all (unvisited) neighbors to the frontier.
 
         Args:
+            frontier: (dict) Dictionary of frontier cells
+            maze: (Maze) The maze object
+            vertex_indices: (tuple) The current vertex indices
+            visited_indices: (set) The set of visited indices
 
         Returns:
-
+            frontier: (dict) Updated frontier dictionary
         """
         vertex = maze.get_cell(*vertex_indices)
         vertex.visit()
