@@ -1,9 +1,9 @@
-# use python 3.11 as base image
+# use python as base image
 FROM python:3.11
 
-WORKDIR /app
+COPY requirements.txt /app/requirements.txt
 
-VOLUME /app
+WORKDIR /app
 
 RUN pip install -r requirements.txt
 
