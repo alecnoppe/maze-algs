@@ -53,10 +53,17 @@ class Wilson(IGenerator):
         """
         Use Wilson's algorithm to generate a maze.
 
+        Works as follows:
+        1. Choose a random cell to start the generation and add it to the uniform spanning tree (UST).
+        2. Select any random cell that is not in the UST
+        2a. Perform a random walk until you encounter a cell that is in the UST
+        3. Add the path from the start cell to the cell in the UST to the UST.
+        * Note: If the path intersects itself, remove the loop and add the path to the UST.
+        4. Repeat steps 2 and 3 until all cells are in the UST.
+
         Args:
             maze; (Maze): The maze instance to update.
         """
-        # TODO: Write algorithm outline
         rows = maze.rows
         cols = maze.cols
         
