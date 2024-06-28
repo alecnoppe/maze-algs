@@ -155,6 +155,10 @@ def create_dataset(n_samples, maze_size, generator=Wilson):
         path = solver.solve(maze)
         path_array = path_to_npy(path, maze_array, holes)
 
+        # convert maze_array, path_array to uint8 arrays
+        maze_array = maze_array.astype(np.uint8)
+        path_array = path_array.astype(np.uint8)
+
         dataset.append((maze_array, path_array))
 
     return dataset
